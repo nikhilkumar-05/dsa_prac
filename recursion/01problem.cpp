@@ -5,10 +5,12 @@ void func(int i,int n){
         return;
     }
     func(i-1,n);
-    
+
     cout<<i;
 
 }
 int main(){
     func(3,3);
 }
+
+// 123
