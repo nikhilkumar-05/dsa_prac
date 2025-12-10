@@ -1,20 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-    vector<int>arr={9 ,4,5,6,7,};
-    int n=arr.size();
-    vector<int>prefix(n);
-    prefix[0]=arr[0];
-    for(int i=1;i<n;i++){
-        prefix[i]=prefix[i-1]+arr[i];
-    }
-    int L=1,R=3;
-    int sum1=prefix[R]-prefix[L-1];
-    
-    int L2=0,R2=4;
-    int sum2=prefix[R2];
 
+int rangesum(vector<int>&prefix,int l,int r){
+    int sum=0;
+    if(l==0){
+        return prefix[r];
+    }
+
+        sum+=prefix[r]-prefix[l-1];
+
+    return sum;
+}
+
+
+
+int main(){
+    vector<int> ar={2, 3, 1, 4, 5};
+
+    int n=ar.size();
+    vector<int> prefix(n);
+    prefix[0]=ar[0];
+    for(int i=1;i<n;i++){
+        prefix[i]=prefix[i-1]+ar[i];
+    }
+    int l=1 ,r=3;
+    cout<<rangesum(prefix,l,r);
     
-    cout << "Sum(1,3): " << sum1 << endl;
-    cout << "Sum(0,4): " << sum2 << endl;
 }
